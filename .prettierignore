@@ -1,0 +1,12 @@
+node_modules/
+dist/
+reports/
+allure-results/
+playwright-report/
+test-results/
+screenshots/
+videos/
+traces/
+package-lock.json
+.env
+coverage/

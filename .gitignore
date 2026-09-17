@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Environment — NEVER commit real credentials
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+coverage/
+
+# Test reports and artifacts (directory placeholders are kept via .gitkeep)
+reports/*
+!reports/.gitkeep
+!reports/allure-results/.gitkeep
+!reports/allure-report/.gitkeep
+!reports/cucumber-report/.gitkeep
+screenshots/*
+!screenshots/.gitkeep
+videos/*
+!videos/.gitkeep
+traces/*
+!traces/.gitkeep
+
+# Playwright native runner output
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

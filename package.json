@@ -1,0 +1,52 @@
+{
+  "name": "playwright-bdd-framework",
+  "version": "1.0.0",
+  "description": "Production-ready Playwright + TypeScript + Cucumber BDD automation framework",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test": "node scripts/run-tests.js",
+    "test:smoke": "node scripts/run-tests.js --tags @smoke",
+    "test:sanity": "node scripts/run-tests.js --tags @sanity",
+    "test:regression": "node scripts/run-tests.js --tags @regression",
+    "test:critical": "node scripts/run-tests.js --tags @critical",
+    "test:wip": "node scripts/run-tests.js --tags @wip",
+    "test:headed": "node scripts/run-tests.js --headed",
+    "test:debug": "node scripts/run-tests.js --headed --debug",
+    "test:chromium": "node scripts/run-tests.js --browser chromium",
+    "test:firefox": "node scripts/run-tests.js --browser firefox",
+    "test:webkit": "node scripts/run-tests.js --browser webkit",
+    "test:playwright": "playwright test",
+    "demo:server": "node scripts/demo-server.js",
+    "report:allure": "npm run report:allure:generate && npm run report:allure:open",
+    "report:allure:generate": "allure generate reports/allure-results --clean -o reports/allure-report",
+    "report:allure:open": "allure open reports/allure-report",
+    "report:cucumber": "node scripts/generate-cucumber-html-report.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1",
+    "@faker-js/faker": "^10.6.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.3",
+    "allure-commandline": "^2.46.1",
+    "allure-cucumberjs": "^3.12.2",
+    "allure-js-commons": "^3.12.2",
+    "cross-env": "^10.1.0",
+    "cucumber-html-reporter": "^7.2.0",
+    "dotenv": "^17.4.2",
+    "eslint": "^9.39.5",
+    "globals": "^17.12.0",
+    "playwright": "^1.63.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0"
+  }
+}
