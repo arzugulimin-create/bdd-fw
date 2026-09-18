@@ -48,6 +48,8 @@ module.exports = [
     },
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      // Plain CommonJS scripts (scripts/, config files) legitimately use require().
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 ];

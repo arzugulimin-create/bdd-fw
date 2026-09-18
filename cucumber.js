@@ -24,6 +24,7 @@ module.exports = {
       'allure-cucumberjs/reporter',
     ],
     formatOptions: {
+      resultsDir: 'reports/allure-results',
       environmentInfo: {
         environment: process.env.ENV || 'dev',
         browser: process.env.BROWSER || 'chromium',
@@ -34,11 +35,7 @@ module.exports = {
       },
     },
 
-    parallel: process.env.WORKERS
-      ? parseInt(process.env.WORKERS, 10)
-      : process.env.CI
-        ? 4
-        : 1,
+    parallel: process.env.WORKERS ? parseInt(process.env.WORKERS, 10) : process.env.CI ? 4 : 1,
 
     retry: process.env.CI ? 1 : 0,
 

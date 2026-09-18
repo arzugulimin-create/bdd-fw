@@ -10,13 +10,13 @@
  */
 import 'dotenv/config';
 import os from 'node:os';
-import { dev, qa, stage, prod } from './environments';
+import { cydeo, dev, prod, qa, stage } from './environments';
 
 export type SupportedBrowser = 'chromium' | 'firefox' | 'webkit';
 export type ArtifactMode = 'off' | 'on' | 'only-on-failure' | 'retain-on-failure';
 
 export interface AppConfig {
-  /** Active environment name (dev | qa | stage | prod) */
+  /** Active environment name (dev | qa | stage | prod | cydeo) */
   env: string;
   /** Base URL of the application under test */
   baseUrl: string;
@@ -60,6 +60,7 @@ const environments: Record<string, { name: string; baseUrl: string; apiBaseUrl?:
   qa,
   stage,
   prod,
+  cydeo,
 };
 
 function normalizeBool(value: string | undefined, fallback: boolean): boolean {
@@ -77,8 +78,7 @@ function buildConfig(): AppConfig {
   const environment = environments[envName] ?? environments.dev;
 
   const baseUrl = (process.env.BASE_URL || environment.baseUrl).replace(/\/+$/, '');
-  const isLocalDemo =
-    baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
+  const isLocalDemo = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
 
   const isCI = normalizeBool(process.env.CI, false);
 
